@@ -158,7 +158,7 @@ func makeMove(index int, playerName string) (err error) {
 }
 
 func about(w http.ResponseWriter, r *http.Request) {
-	blabla := "----- Noughts & Crosses -----\nHow to play:\nAPI:"
+	blabla := "----- Noughts & Crosses -----"
 	w.Write([]byte(blabla))
 }
 
@@ -169,7 +169,6 @@ func setMove(w http.ResponseWriter, r *http.Request) {
 	var m move
 	_ = json.Unmarshal(body, &m)
 
-	// fmt.Println("new move for", m.Player, m.Index)
 	err := makeMove(m.Index, m.Player)
 
 	var res []byte

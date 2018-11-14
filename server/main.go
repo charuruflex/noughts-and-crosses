@@ -36,12 +36,12 @@ type move struct {
 }
 
 type gameStatus struct {
-	Gameover    bool     `json:"gameover"`
-	Winner      *string  `json:"winner"`
-	NextPlayer  string   `json:"nextplayer"`
-	Board       []string `json:"board"`
-	Players     []player `json:"players"`
-	MovesPlayed int      `json:"moveplayed"`
+	Gameover     bool     `json:"gameover"`
+	Winner       *string  `json:"winner"`
+	NextPlayer   string   `json:"nextplayer"`
+	Board        []string `json:"board"`
+	Players      []player `json:"players"`
+	MovesCounter int      `json:"movescounter"`
 }
 
 type nAndCErr struct {
@@ -153,9 +153,9 @@ func makeMove(index int, playerName string) (err error) {
 	updateCounters(2+row, currentPlayer)
 	updateCounters(2+config.Size+col, currentPlayer)
 
-	status.MovesPlayed++
+	status.MovesCounter++
 
-	if status.Winner == nil && status.MovesPlayed == config.Size*config.Size {
+	if status.Winner == nil && status.MovesCounter == config.Size*config.Size {
 		status.Gameover = true
 	}
 	return

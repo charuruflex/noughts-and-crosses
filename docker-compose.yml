@@ -1,0 +1,28 @@
+version: "3.1"
+services:
+  api:
+    build: 
+      context: server
+      args:
+        PORT: 80
+        SIZE: 3
+    restart: always
+      
+  client:
+    build:
+      context: client
+      args: 
+        VUE_APP_API: ../api/v1/
+    restart: always
+
+  web:
+    image: nginx:alpine
+    restart: always
+    volumes:
+      - ./web/nginx.conf:/etc/nginx/conf.d/default.template
+    environment:
+      - CLIENT=client
+      - API=api
+    ports:
+      - 80:80
+    command: /bin/sh -c "envsubst < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"

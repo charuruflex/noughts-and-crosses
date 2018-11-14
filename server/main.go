@@ -175,24 +175,33 @@ func setMove(w http.ResponseWriter, r *http.Request) {
 
 	err := makeMove(m.Index, m.Player)
 
-	var res []byte
+	w.Header().Set("Content-Type", "application/json")
+
 	if err != nil {
-		res, _ = json.Marshal(err)
 		w.WriteHeader(http.StatusNotAcceptable)
+		json.NewEncoder(w).Encode(err)
+	} else {
+		msg := struct {
+			Move string `json:"move"`
+		}{"ok"}
+		json.NewEncoder(w).Encode(msg)
 	}
-	w.Write(res)
+
 }
 
 func getStatus(w http.ResponseWriter, r *http.Request) {
-	statusJSON, _ := json.Marshal(status)
 	w.Header().Set("Content-Type", "application/json")
-	w.Write(statusJSON)
+	json.NewEncoder(w).Encode(status)
 }
 
 func newGame(w http.ResponseWriter, r *http.Request) {
 	initAll()
+	msg := struct {
+		NewGame string `json:"newgame"`
+	}{"ok"}
+
 	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte(`{"newGame":"ok"}`))
+	json.NewEncoder(w).Encode(msg)
 }
 
 func main() {

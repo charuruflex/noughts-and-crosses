@@ -27,7 +27,7 @@ export default {
   grid-template-columns: auto auto auto;
   background-color: #2196f3;
   padding: 10px;
-  width: 33%;
+  width: 20em;
   margin: auto;
 }
 .cell {

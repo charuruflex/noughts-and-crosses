@@ -1,4 +1,4 @@
-# game-client
+# noughts-and-crosses-client
 
 ## Project setup
 ```

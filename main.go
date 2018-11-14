@@ -52,7 +52,7 @@ func (e *nAndCErr) Error() string {
 }
 
 func initialInit() {
-	config = gameConfig{Size: 3, Port: fmt.Sprintf(":%d", 8000)}
+	config = gameConfig{Size: 3, Port: fmt.Sprintf(":%d", 8080)}
 	// port := fmt.Sprintf(":%d", 8000)
 	// size = 3
 	if sizeEnv, ok := os.LookupEnv("SIZE"); ok {

@@ -1,8 +1,8 @@
 # noughts-and-crosses
 
-Nougths & crosses in go, playable via API
+Nougths & crosses in go, playable via API.
 
-## requirements
+## Requirements
   - go (tested with go1.11.2)
   - dep (for dependencies, tested with v0.5.0)
   - node (tested with v11.1.0)
@@ -15,9 +15,9 @@ Nougths & crosses in go, playable via API
   - `cd server`
   - `dep ensure`
   - `go build -o nac main.go`
-  - `PORT=8080 ./nac`
+  - `./nac`
   
-The API can be accessed on http://localhost:8080.
+The API can be accessed on http://localhost:8080, the port can be changed via `PORT` env var. 
 The board size defaults to 3x3 and can be changed with env var `SIZE`.
 
 ### Client (Vue.js)
@@ -30,23 +30,7 @@ You can play now by accessing the given URL.
 
 ## API
   - GET `/api/v1/status`: get game state, the winner, the next player, if the game has ended
-    - res: ```{
-    "gameover": false,
-    "winner": null,
-    "nextplayer": "P1",
-    "board": [
-        "-",
-        "-",
-        "-",
-        "-",
-        "-",
-        "-",
-        "-",
-        "-",
-        "-"
-    ],
-    "players": null
-    }```
+    - res: ```{"gameover":false,"winner":null,"nextplayer":"P2","board":["P1","-","-","P2","-","-","P1","-","-"],"players":null,"movescounter":3}```
   - POST `/api/v1/makemove`: make a move for a player
     - req: ```{
 	  "player": "P1",
@@ -63,6 +47,6 @@ The board looks like this (if `SIZE=3`):
 
   - GET `/api/v1/newgame`: reset the game
 
-## Run in containers (tbd)
-
-## How to play (tbd)
+## Run in containers (docker & docker-compose needed)
+  - `docker-compose build && docker-compose up -d`
+Et voilà! You can play Noughts & Crosses via http://localhost:8080

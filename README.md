@@ -49,4 +49,5 @@ The board looks like this (if `SIZE=3`):
 
 ## Run in containers (docker & docker-compose needed)
   - `docker-compose build && docker-compose up -d`
+
 Et voilà! You can play Noughts & Crosses via http://localhost:8080

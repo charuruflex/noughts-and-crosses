@@ -1,7 +1,11 @@
 <template>
   <div class="board">
-      <div class="cell" v-for="(cell, i) in $store.getters.status.board">
-         <Cell :value="cell" :index="i"/>
+    <div
+      class="cell"
+      v-for="(cell, i) in $store.getters.status.board"
+      v-bind:key="i"
+    >
+      <Cell :value="cell" :index="i"></Cell>
     </div>
   </div>
 </template>
@@ -18,12 +22,12 @@ export default {
 </script>
 
 <style scoped>
-.board{
+.board {
   display: flex;
   flex-wrap: wrap;
-  }
-  .cell {
-    flex: 1 0 30%; /* explanation below */
-    border: 1px solid
+}
+.cell {
+  flex: 1 0 30%; /* explanation below */
+  border: 1px solid;
 }
 </style>

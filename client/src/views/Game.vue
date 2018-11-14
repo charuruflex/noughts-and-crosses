@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="nav">
-      <span v-on:click="reset">New game</span> |
+      <span v-on:click="reset">New game</span>|
       <span v-on:click="load">Refresh</span>
     </div>
     <div>
@@ -20,7 +20,7 @@ import State from "@/components/State.vue";
 
 export default {
   name: "game",
-  
+
   components: {
     Board, State
   },

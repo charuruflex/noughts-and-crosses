@@ -51,3 +51,7 @@ The board looks like this (if `SIZE=3`):
   - `docker-compose build && docker-compose up -d`
 
 Et voilà! You can play Noughts & Crosses via http://localhost:8080
+
+## Demo
+- A live demo can be found here: https://noughts-and-crosses.charuruflex.eu/
+- API : https://noughts-and-crosses.charuruflex.eu/api/v1/status

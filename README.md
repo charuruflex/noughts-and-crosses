@@ -9,6 +9,7 @@ Nougths & crosses in go, playable via API
   
 ## How to start (without docker)
   - clone this repository
+  - `cd server`
   - `dep ensure`
   - `go build -o nac main.go`
   - `PORT=8080 ./nac`

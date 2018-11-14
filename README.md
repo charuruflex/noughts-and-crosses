@@ -14,8 +14,8 @@ Nougths & crosses in go, playable via API.
 ### Server (go)
   - `cd server`
   - `dep ensure`
-  - `go build -o nac main.go`
-  - `./nac`
+  - `go build -o game main.go`
+  - `./game`
   
 The API can be accessed on http://localhost:8080, the port can be changed via `PORT` env var. 
 The board size defaults to 3x3 and can be changed with env var `SIZE`.

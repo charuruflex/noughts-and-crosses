@@ -36,11 +36,12 @@ type move struct {
 }
 
 type gameStatus struct {
-	Gameover   bool     `json:"gameover"`
-	Winner     *string  `json:"winner"`
-	NextPlayer string   `json:"nextplayer"`
-	Board      []string `json:"board"`
-	Players    []player `json:"players"`
+	Gameover    bool     `json:"gameover"`
+	Winner      *string  `json:"winner"`
+	NextPlayer  string   `json:"nextplayer"`
+	Board       []string `json:"board"`
+	Players     []player `json:"players"`
+	MovesPlayed int      `json:"moveplayed"`
 }
 
 type nAndCErr struct {
@@ -53,8 +54,6 @@ func (e *nAndCErr) Error() string {
 
 func initialInit() {
 	config = gameConfig{Size: 3, Port: fmt.Sprintf(":%d", 8080)}
-	// port := fmt.Sprintf(":%d", 8000)
-	// size = 3
 	if sizeEnv, ok := os.LookupEnv("SIZE"); ok {
 		config.Size, _ = strconv.Atoi(sizeEnv)
 	}
@@ -154,6 +153,11 @@ func makeMove(index int, playerName string) (err error) {
 	updateCounters(2+row, currentPlayer)
 	updateCounters(2+config.Size+col, currentPlayer)
 
+	status.MovesPlayed++
+
+	if status.Winner == nil && status.MovesPlayed == config.Size*config.Size {
+		status.Gameover = true
+	}
 	return
 }
 

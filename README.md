@@ -41,7 +41,7 @@ The board size defaults to 3x3 and can be changed with env var `SIZE`
 	"index": 1
 }``` with 0 < index < 8 (if `SIZE=3`)
 
-The board is represented like this:
+The board looks like this (if `SIZE=3`):
 
   0  1  2
 

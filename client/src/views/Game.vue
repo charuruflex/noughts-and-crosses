@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="nav">
-      <span v-on:click="reset">New game</span>|
+      <span v-on:click="reset">New game</span> |
       <span v-on:click="load">Refresh</span>
     </div>
     <div>
@@ -37,3 +37,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.state {
+  padding-top: 2em;
+}
+</style>

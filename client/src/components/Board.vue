@@ -23,11 +23,18 @@ export default {
 
 <style scoped>
 .board {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196f3;
+  padding: 10px;
+  width: 33%;
+  margin: auto;
 }
 .cell {
-  flex: 1 0 30%; /* explanation below */
-  border: 1px solid;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
 </style>

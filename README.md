@@ -11,7 +11,7 @@ Nougths & crosses in go, playable via API
   
 ## How to start (without docker)
 
-### Server
+### Server (go)
   - `cd server`
   - `dep ensure`
   - `go build -o nac main.go`
@@ -28,7 +28,7 @@ The board size defaults to 3x3 and can be changed with env var `SIZE`.
 
 You can play now by accessing the given URL.
 
-## API (go)
+## API
   - GET `/api/v1/status`: get game state, the winner, the next player, if the game has ended
     - res: ```{
     "gameover": false,

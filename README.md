@@ -2,7 +2,7 @@
 
 Nougths & crosses in go, playable via API.
 
-# Backend code challenge: instructions
+## Backend code challenge: instructions
 
 Build a simple service to allow two users to remotely play Noughts & Crosses.
 
